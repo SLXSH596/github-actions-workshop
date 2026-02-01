@@ -1,4 +1,4 @@
-name: Pass data between steps
+name: Pass data between steps (1)
 
 on:
   workflow_dispatch:

@@ -1,0 +1,29 @@
+name: Pass data between steps (3)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compute version
+        id: version
+        shell: bash
+        run: |
+          VERSION="$(date -u +'%Y%m%d-%H%M%S')"
+
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "BUILD_LABEL=build-$VERSION" >> "$GITHUB_ENV"
+
+      - name: Show version (from output)
+        run: |
+          echo "Version is: ${{ steps.version.outputs.VERSION }}"
+
+      - name: Show build label (from env)
+        run: |
+          echo "Build label is: $BUILD_LABEL"

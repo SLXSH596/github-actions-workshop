@@ -1,0 +1,32 @@
+name: TASK - Pass data
+
+on:
+  workflow_dispatch:
+    inputs:
+      math_number:
+        description: 'Your starting value (any number)'
+        required: true
+        type: number
+        default: 3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Calculate the math answer
+        id: math_answer
+        shell: bash
+        run: |
+          exm="example, you can remove me"
+          ans=$((${{ github.event.inputs.math_number }} + 10))
+          echo "You need to pass this value: $ans"
+          echo "EXAMPLE=$exm" >> "$GITHUB_OUTPUT" #TODO edit here
+
+      - name: Show the answer
+        run: |
+          echo "The Answer to the maths result is:"
+          echo "___________" #TODO edit here
+
+
+

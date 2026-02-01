@@ -1,4 +1,4 @@
-name: Pass data between steps
+name: Pass data between steps (2)
 
 on:
   workflow_dispatch:
@@ -15,15 +15,9 @@ jobs:
         id: version
         shell: bash
         run: |
-          VERSION="$(date -u +'%Y%m%d-%H%M%S')"
+          SOME_VARIABLE="staffs-uni"
+          echo "WHICH_UNI=$SOME_VARIABLE" >> "$GITHUB_ENV"
 
-          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "BUILD_LABEL=build-$VERSION" >> "$GITHUB_ENV"
-
-      - name: Show version (from output)
+      - name: Show which Uni we are at (from env)
         run: |
-          echo "Version is: ${{ steps.version.outputs.VERSION }}"
-
-      - name: Show build label (from env)
-        run: |
-          echo "Build label is: $BUILD_LABEL"
+          echo "Which Uni are we at: $WHICH_UNI"
