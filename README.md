@@ -48,3 +48,38 @@ npx standard --fix
 
 To automatically change your code and fix the lint problems without doing any
 code changes yourself! Nice!
+
+
+## surge?
+
+http://surge.sh/
+
+surge
+makeup details
+
+
+<path> <domain> must end in surge.sh
+
+surge . bk-sample-site-staffs.surge.sh
+
+env:
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+run: surge --project ./ --domain <your-prefered-surge-subdomain>.surge.sh --token $SURGE_TOKEN
+
+## Own GHA 
+
+New Dir
+created yml file
+created index.js file
+npm init enter all
+edited yml file
+editied indx file
+deps:
+"@actions/core": "^2.0.1"
+npm install
+git init
+ga
+gcom
+create private repo and push
+tag and push v1
+gitignore! node_mods

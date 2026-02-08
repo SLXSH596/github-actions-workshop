@@ -1,0 +1,19 @@
+name: Custom Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call my action
+        id: my
+        uses: kardelio/github-actions-workshop-custom-action@v2
+        with:
+          message: "it works!"
+
+      - name: Read the output
+        run: |
+          echo "Action printed: ${{ steps.my.outputs.printed }}"
+
