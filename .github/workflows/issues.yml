@@ -1,0 +1,14 @@
+name: Action on issue created
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  print-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Display Message"
+        run: |
+          echo "A new issue has been created."
+          echo "The issue is titled: ${{ github.event.issue.title }}"
