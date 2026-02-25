@@ -1,4 +1,4 @@
-name: Action on issue created
+name: On issue created
 
 on:
   issues:
