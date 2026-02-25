@@ -12,3 +12,4 @@ jobs:
         run: |
           echo "A new issue has been created."
           echo "The issue is titled: ${{ github.event.issue.title }}"
+          echo "The user who created this is: ${{github.event.issue.user}}"
